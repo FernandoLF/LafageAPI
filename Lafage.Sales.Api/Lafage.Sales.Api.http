@@ -1,0 +1,160 @@
+@Lafage.Sales.Api_HostAddress = http://localhost:5224
+@host = {{Lafage.Sales.Api_HostAddress}}
+
+GET {{Lafage.Sales.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+POST {{Lafage.Sales.Api_HostAddress}}/api/persona
+Content-Type: application/json
+
+{
+  "nombre": "Fernando",
+  "apellido": "López",
+  "direccion": "Zona 1",
+  "telefono": "+50212345678",
+  "email": "fernando@example.com",
+  "numeroIdentificacion": "123456789"
+}
+
+### Consultar personas activas
+GET {{Lafage.Sales.Api_HostAddress}}/api/persona
+
+### Desactivar persona
+PUT {{Lafage.Sales.Api_HostAddress}}/api/persona/1/desactivar
+
+### Insertar cliente
+POST {{host}}/api/cliente
+Content-Type: application/json
+
+{
+  "idPersona": 1,
+  "nit": "1234567-K"
+}
+
+### Consultar clientes
+GET {{host}}/api/cliente
+
+### Desactivar cliente
+PUT {{host}}/api/cliente/1/desactivar
+
+
+### Insertar asesor
+POST {{host}}/api/asesorcomercial
+Content-Type: application/json
+
+{
+  "idPersona": 2,
+  "meta": 15000.00
+}
+
+### Consultar asesores
+GET {{host}}/api/asesorcomercial
+
+### Desactivar asesor
+PUT {{host}}/api/asesorcomercial/1/desactivar
+
+### Actualizar asesor
+PUT {{host}}/api/asesorcomercial
+Content-Type: application/json
+
+{
+  "idAsesorComercial": 1,
+  "idPersona": 2,
+  "nombre": "Carlos",
+  "apellido": "Ramírez",
+  "meta": 18000.00,
+  "activo": true
+}
+
+### Insertar línea de producto
+POST {{host}}/api/lineaproducto
+Content-Type: application/json
+
+"Electrónica"
+
+### Consultar líneas activas
+GET {{host}}/api/lineaproducto
+
+### Consultar todas (incluye inactivas)
+GET {{host}}/api/lineaproducto?soloActivos=false
+
+### Actualizar línea
+PUT {{host}}/api/lineaproducto
+Content-Type: application/json
+
+{
+  "idLineaProducto": 1,
+  "descripcion": "Electrodomésticos",
+  "activo": true
+}
+
+### Eliminar línea (desactivar)
+DELETE {{host}}/api/lineaproducto/1
+
+### Insertar producto
+POST {{host}}/api/producto
+Content-Type: application/json
+
+{
+  "idLineaProducto": 1,
+  "descripcion": "Laptop Dell",
+  "stock": 10,
+  "fechaProduccion": "2025-12-01",
+  "precio": 8500.00
+}
+
+### Consultar productos activos
+GET {{host}}/api/producto
+
+### Consultar todos (incluye inactivos)
+GET {{host}}/api/producto?soloActivos=false
+
+### Actualizar producto
+PUT {{host}}/api/producto
+Content-Type: application/json
+
+{
+  "idProducto": 1,
+  "descripcion": "Laptop Dell XPS",
+  "precio": 8900.00,
+  "stock": 10,
+  "lineaProducto": "Electrónica",
+  "activo": true
+}
+
+  ### Crear pedido simple
+POST {{host}}/api/pedido/simple
+Content-Type: application/json
+
+{
+  "idCliente": 1,
+  "idVendedor": 2,
+  "idProducto": 3,
+  "cantidad": 2,
+  "precioUnitario": 1500.00,
+  "descuento": 100.00
+}
+
+### Crear pedido múltiple
+POST {{host}}/api/pedido/multiple
+Content-Type: application/json
+
+{
+  "idCliente": 1,
+  "idVendedor": 2,
+  "detalle": [
+    {
+      "idProducto": 3,
+      "cantidad": 2,
+      "precioUnitario": 1500.00,
+      "descuento": 100.00
+    },
+    {
+      "idProducto": 4,
+      "cantidad": 1,
+      "precioUnitario": 2500.00,
+      "descuento": 0.00
+    }
+  ]
+}

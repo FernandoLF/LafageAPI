@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Lafage.Sales.Api/Lafage.Sales.Api.csproj" />
+  <Project Path="Lafage.Sales.Application/Lafage.Sales.Application.csproj" />
+  <Project Path="Lafage.Sales.Domain/Lafage.Sales.Domain.csproj" />
+  <Project Path="Lafage.Sales.Infrastructure/Lafage.Sales.Infrastructure.csproj" />
+</Solution>
