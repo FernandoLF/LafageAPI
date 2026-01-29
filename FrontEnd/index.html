@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Lafage Frontend</title>
+</head>
+<body>
+  <h1>Frontend sencillo para LafageAPI</h1>
+
+  <!-- Personas -->
+  <h2>Personas</h2>
+  <form onsubmit="crearPersona(event)">
+    <input id="nombre" placeholder="Nombre">
+    <input id="apellido" placeholder="Apellido">
+    <input id="direccion" placeholder="Dirección">
+    <input id="telefono" placeholder="Teléfono">
+    <input id="email" placeholder="Email">
+    <input id="numeroIdentificacion" placeholder="Identificación">
+    <button type="submit">Crear Persona</button>
+  </form>
+  <button onclick="consultarPersonas()">Consultar Personas</button>
+  <button onclick="desactivarPersona()">Desactivar Persona (ID=1)</button>
+  <pre id="personas"></pre>
+
+  <!-- Clientes -->
+  <h2>Clientes</h2>
+  <form onsubmit="crearCliente(event)">
+    <input id="idPersonaCliente" placeholder="IdPersona">
+    <input id="nitCliente" placeholder="NIT">
+    <button type="submit">Crear Cliente</button>
+  </form>
+  <button onclick="consultarClientes()">Consultar Clientes</button>
+  <pre id="clientes"></pre>
+
+  <!-- Productos -->
+  <h2>Productos</h2>
+  <form onsubmit="crearProducto(event)">
+    <input id="idLineaProducto" placeholder="IdLineaProducto">
+    <input id="descripcionProducto" placeholder="Descripción">
+    <input id="stockProducto" placeholder="Stock">
+    <input id="fechaProduccion" placeholder="Fecha (YYYY-MM-DD)">
+    <input id="precioProducto" placeholder="Precio">
+    <button type="submit">Crear Producto</button>
+  </form>
+  <button onclick="consultarProductos()">Consultar Productos</button>
+  <pre id="productos"></pre>
+
+  <!-- Pedidos -->
+  <h2>Pedidos</h2>
+  <form onsubmit="crearPedido(event)">
+    <input id="idClientePedido" placeholder="IdCliente">
+    <input id="idVendedorPedido" placeholder="IdVendedor">
+    <input id="idProductoPedido" placeholder="IdProducto">
+    <input id="cantidadPedido" placeholder="Cantidad">
+    <input id="precioUnitarioPedido" placeholder="PrecioUnitario">
+    <input id="descuentoPedido" placeholder="Descuento">
+    <button type="submit">Crear Pedido Simple</button>
+  </form>
+  <pre id="pedido"></pre>
+
+  <script src="script.js"></script>
+</body>
+</html>
